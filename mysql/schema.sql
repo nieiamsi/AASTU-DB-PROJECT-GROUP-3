@@ -56,3 +56,18 @@ CURRENT_TIMESTAMP,
 FOREIGN KEY (BookingID) REFERENCES
 Booking (BookingID)
 );
+CREATE TABLE Booking (
+    BookingID INT AUTO_INCREMENT PRIMARY KEY,
+    GuestID INT,
+    RoomNumber INT,
+    CheckIn DATE NOT NULL,
+    CheckOut DATE NOT NULL,
+    TotalBaseCost DECIMAL(10, 2),
+    FOREIGN KEY (GuestID) REFERENCES Guest(GuestID),
+    FOREIGN KEY (RoomNumber) REFERENCES Room(RoomNumber)
+);
+CREATE TABLE Service (
+    ServiceID INT AUTO_INCREMENT PRIMARY KEY,
+    ServiceName VARCHAR(100) NOT NULL,
+    UnitPrice DECIMAL(10, 2) NOT NULL
+);
