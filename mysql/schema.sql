@@ -27,3 +27,18 @@ CREATE TABLE Room (
     Status ENUM('Available', 'Occupied', 'Maintenance') DEFAULT 'Available',
     FOREIGN KEY (TypeID) REFERENCES RoomType(TypeID)
 );
+ ServiceUsage Table (Junction table
+for Booking <-> Service)
+CREATE TABLE ServiceUsage(
+UsageID INT AUTO_INCREMENT
+PRIMARY KEY,
+BookingID INT,
+ServiceID INT,
+Quantity INT DEFAULT I,
+ServiceDate DATE,
+SubTotal DECIMAL (10, z),
+FOREIGN KEY (BookingID) REFERENCES
+Booking (BookingID) ON DELETE CASCADE,
+FOREIGN KEY (ServiceID) REFERENCES
+Service (ServiceID)
+);
