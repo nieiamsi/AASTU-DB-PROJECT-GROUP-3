@@ -13,3 +13,17 @@ LastName varchar(50) NOT NULL,
 Email varchar(100) UNIQUE, 
 ID_Number varchar(50) UNIQUE NOT NULL
 ); 
+CREATE TABLE GuestPhone (
+    PhoneID INT AUTO_INCREMENT PRIMARY KEY,
+    GuestID INT,
+    PhoneNumber VARCHAR(20) NOT NULL,
+    FOREIGN KEY (GuestID) REFERENCES Guest(GuestID) ON DELETE CASCADE
+);
+
+CREATE TABLE Room (
+    RoomNumber INT PRIMARY KEY,
+    TypeID INT,
+    Floor INT,
+    Status ENUM('Available', 'Occupied', 'Maintenance') DEFAULT 'Available',
+    FOREIGN KEY (TypeID) REFERENCES RoomType(TypeID)
+);
