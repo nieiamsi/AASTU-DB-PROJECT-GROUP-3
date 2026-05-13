@@ -27,6 +27,7 @@ CREATE TABLE Room (
     Status ENUM('Available', 'Occupied', 'Maintenance') DEFAULT 'Available',
     FOREIGN KEY (TypeID) REFERENCES RoomType(TypeID)
 );
+
  ServiceUsage Table (Junction table
 for Booking <-> Service)
 CREATE TABLE ServiceUsage(
@@ -41,4 +42,17 @@ FOREIGN KEY (BookingID) REFERENCES
 Booking (BookingID) ON DELETE CASCADE,
 FOREIGN KEY (ServiceID) REFERENCES
 Service (ServiceID)
+);
+
+CREATE TABLE Payment (
+PaymentID INT AUTO_INCREMENT
+PRIMARY KEY,
+BookingID INT,
+Amount DECIMAL (10, 2) NOT NULL,
+Method ENUM('Cash', 'Credit Card',
+'Telebirr', 'Bank Transfer'),
+PaymentDate TIMESTAMP DEFAULT
+CURRENT_TIMESTAMP,
+FOREIGN KEY (BookingID) REFERENCES
+Booking (BookingID)
 );
