@@ -1,0 +1,9 @@
+{
+  "GuestID": 11,
+  "FirstName": "Hermon",
+  "LastName": "Daniel",
+  "Email": "hermon@email.com",
+  "ID_Number": "ET011",
+  "PhoneNumbers": ["0988776655"],
+  "Status": "VIP"
+}
